@@ -8,6 +8,8 @@ module.exports = async (client, message) => {
 	if (message.channel.type !== 'text' && message.channel.type !== 'dm') {return undefined;}
 
 	//if (message.channel.type == "text") {if (settings[message.guild.id]) {prefix = settings[message.guild.id].prefix;};};
+
+    if (message.guild && !message.member.permissions.has("SEND_MESSAGES")) {return undefined;}
 	
     const prefix = 'v..';
 
