@@ -20,8 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cbac9c06-fed2-4527-b981-8e3345c190db" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/commands/8ball.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/events/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/events/message.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commands/dice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commands/help.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/rolls.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Valk-Test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Hell..iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +46,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1hs0eVWymyz5Xp0XTJrKtCYTBac" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -46,7 +54,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/commands" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ManyItems/dist/weapon.js" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -54,13 +62,21 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="discord-application" />
+    <property name="ts.external.directory.path" value="C:\Users\CLARKJR1836\Desktop\ManyItems\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\CLARKJR1836\Desktop\bot\Valk-Test\commands" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="weapon.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/../../ManyItems/dist/weapon.js" working-dir="$PROJECT_DIR$">
+      <method v="2">
+        <option name="TypeScript.Before.Run" enabled="true" FAIL_ON_ERROR="true" CONFIG_PATH="$PROJECT_DIR$/../../ManyItems/tsconfig.json" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -71,7 +87,9 @@
       <option name="presentableId" value="Default" />
       <updated>1600784589653</updated>
       <workItem from="1600784593135" duration="390000" />
-      <workItem from="1600785077959" duration="3496000" />
+      <workItem from="1600785077959" duration="4881000" />
+      <workItem from="1600797072112" duration="13927000" />
+      <workItem from="1600841640903" duration="4448000" />
     </task>
     <servers />
   </component>
@@ -88,8 +106,17 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="137" y="14" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600806404791">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="14" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1600806404791" />
+    <state x="463" y="106" key="FileChooserDialogImpl" timestamp="1600806325624">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="106" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1600806325624" />
     <state width="1345" height="179" key="GridCell.Tab.0.bottom" timestamp="1600785036984">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -106,14 +133,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1600785036984" />
-    <state x="263" y="99" key="IDE.errors.dialog" timestamp="1600785128721">
+    <state x="263" y="99" key="IDE.errors.dialog" timestamp="1600899213677">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="263" y="99" key="IDE.errors.dialog/0.0.1366.728@0.0.1366.728" timestamp="1600785128721" />
-    <state x="184" y="9" key="SettingsEditor" timestamp="1600786363016">
+    <state x="263" y="99" key="IDE.errors.dialog/0.0.1366.728@0.0.1366.728" timestamp="1600899213677" />
+    <state x="184" y="9" key="SettingsEditor" timestamp="1600797856108">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1600786363016" />
+    <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1600797856108" />
     <state x="346" y="49" key="search.everywhere.popup" timestamp="1600787310707">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
