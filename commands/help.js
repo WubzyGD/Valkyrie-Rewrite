@@ -13,7 +13,12 @@ module.exports = {
             else if (client.aliases.has(args[0])) {command = client.commands.get(client.aliases.get([args[0]]));}
             else {return message.reply("I don't have that command! Try using `" + prefix + "help` to get a list of my commands");}
 
-            return message.reply(command.help ? command.help : "I don't seem to have any help info available for that command.");
+            return message.reply(command.help
+                ? command.help instanceof Discord.MessageEmbed
+                    ? command.help.setFooter("Valkyrie | <required> [optional]", client.user.avatarURL()).setColor("DC134C").setTimestamp()
+                    : command.help.replace(/{{p}}/+g, prefix)
+                : "I don't seem to have any help info available for that command."
+            );
         }
     }
 };
