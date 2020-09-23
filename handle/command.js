@@ -9,7 +9,7 @@ module.exports = client => {
         var command = require(`../commands/${commandf}`);
         client.commands.set(command.name, command);
         if (command.aliases) {command.aliases.forEach(a => client.aliases.set(a, command.name));}
-        console.log(`${chalk.gray('[LOG]')} >> ${chalk.blueBright('Loaded Command')} ${chalk.white(command.name)}`);
+        console.log(`${chalk.gray('[LOG] ')} >> ${chalk.blueBright('Loaded Command')} ${chalk.white(command.name)}`);
     }
     console.log(`\n${chalk.gray('[BOOT]')} >> ${chalk.blue('Loaded all Commands')}`);
 };

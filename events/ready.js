@@ -7,11 +7,11 @@ const prefix = 'v..';
 module.exports = client => {
     console.log(`\n${chalk.green('[BOOT]')} >> [${moment().format('L LTS')}] -> ${chalk.greenBright("Connected to Discord")}.`);
     var date = new Date; date = date.toString().slice(date.toString().search(":") - 2, date.toString().search(":") + 6);
-    console.log(`\n${chalk.gray('[INFO')} >> ${chalk.white(`Logged in at ${date}.`)}`);
-    console.log(`\n${chalk.gray('[INFO')} >> ${chalk.white(`Logged in as ${client.user.username}!`)}`);
-    console.log(`${chalk.gray('[INFO')} >> ${chalk.white(`Client ID: ${client.user.id}`)}`);
-    console.log(`${chalk.gray('[INFO')} >> ${chalk.white(`Running on ${client.guilds.cache.size} servers!`)}`);
-    console.log(`${chalk.gray('[INFO')} >> ${chalk.white(`Serving ${client.users.cache.size} users!`)}`);
+    console.log(`\n${chalk.gray('[INFO]')} >> ${chalk.white(`Logged in at ${date}.`)}`);
+    console.log(`\n${chalk.gray('[INFO]')} >> ${chalk.white(`Logged in as ${client.user.username}!`)}`);
+    console.log(`${chalk.gray('[INFO]')} >> ${chalk.white(`Client ID: ${client.user.id}`)}`);
+    console.log(`${chalk.gray('[INFO]')} >> ${chalk.white(`Running on ${client.guilds.cache.size} servers!`)}`);
+    console.log(`${chalk.gray('[INFO]')} >> ${chalk.white(`Serving ${client.users.cache.size} users!`)}`);
     
     var responses = {"PLAYING": ["some high rolls...", "with dice...", "a great rpg...", "with the laws of the dice...", 
   	"with the dead elf's knife...", "with skeleton bones...", "with a new set of dice...", "five-finger filet...", 

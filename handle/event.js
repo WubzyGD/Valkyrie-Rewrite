@@ -9,7 +9,7 @@ module.exports = client => {
         let evt = require('../events/' + file);
         let evtName = file.split('.')[0];
         client.on(evtName, evt.bind(null, client));
-        console.log(`${chalk.gray('[INFO]')} >> ${chalk.blueBright('Loaded Event')} ${chalk.white(evtName)}`);
+        console.log(`${chalk.gray('[LOG] ')} >> ${chalk.blueBright('Loaded Event')} ${chalk.white(evtName)}`);
     };
     console.log(`\n${chalk.gray('[BOOT]')} >> ${chalk.blue('Loaded all Events')}`);
 };

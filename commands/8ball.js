@@ -8,7 +8,7 @@ module.exports = {
         .setDescription("Answers your questions in an intelligent, honest, ~~completely not random~~ way!")
         .addField("Syntax", "`8ball <question>`")
         .setColor("DC134C")
-        .setFooter("Valkyrie | <required> [optional]", client.user.avatarURL())
+        .setFooter("Valkyrie | <required> [optional]")
         .setTimestamp(),
     execute(message, msg, args, cmd, prefix, mention, client) {
         if (!args.length) {return message.channel.send(`Syntax: \`${prefix}8ball <question>\``);}
@@ -24,7 +24,7 @@ module.exports = {
 
         return message.reply(new Discord.MessageEmbed()
             .setAuthor("8ball Question", message.author.avatarURL())
-            .setDescription("**Question:** " + question + "**Answer:** " + responses[Math.floor(Math.random() * responses.length)])
+            .setDescription("**Question:** " + question + "\n**Answer:** " + responses[Math.floor(Math.random() * responses.length)])
             .setColor("DC134C")
             .setFooter(`Asked by ${name}`)
             .setTimestamp());
