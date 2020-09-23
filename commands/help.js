@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "dice",
-    aliases: ["die", "d"],
+    name: "help",
+    aliases: ["h", "commands", "cmds"],
     help: '...rly bro?',
     execute(message, msg, args, cmd, prefix, mention, client) {
         if (!args.length) {
