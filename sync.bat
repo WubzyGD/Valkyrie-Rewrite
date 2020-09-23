@@ -1,4 +1,6 @@
+@echo off
+set /p msg="Enter Commit Message: "
 git pull origin master
 git add .
-git commit -m "Initialise Bot"
+git commit -m %msg%
 git push origin master
