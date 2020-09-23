@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Valk-Test.iml" filepath="$PROJECT_DIR$/.idea/Valk-Test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Hell..iml" filepath="$PROJECT_DIR$/.idea/Hell..iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../ManyItems/.idea/ManyItems.iml" filepath="$PROJECT_DIR$/../../ManyItems/.idea/ManyItems.iml" />
     </modules>
   </component>
 </project>
