@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports = {
     name: "info",
     aliases: ["i", "botinfo", "bot"],
-    help: "There's not really anything to help with here! Just use {{p}}`info` to learn more about me!",
+    help: "There's not really anything to help with here! Just use `{{p}}info` to learn more about me!",
     execute(message, msg, args, cmd, prefix, mention, client) {
         return message.channel.send(new Discord.MessageEmbed()
         .setAuthor("About Me!", client.users.cache.get("330547934951112705").avatarURL())

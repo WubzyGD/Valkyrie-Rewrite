@@ -6,10 +6,7 @@ module.exports = {
     help: new Discord.MessageEmbed()
         .setTitle("Help -> 8ball")
         .setDescription("Answers your questions in an intelligent, honest, ~~completely not random~~ way!")
-        .addField("Syntax", "`8ball <question>`")
-        .setColor("DC134C")
-        .setFooter("Valkyrie | <required> [optional]")
-        .setTimestamp(),
+        .addField("Syntax", "`8ball <question>`"),
     execute(message, msg, args, cmd, prefix, mention, client) {
         if (!args.length) {return message.channel.send(`Syntax: \`${prefix}8ball <question>\``);}
         let question = args.join(" ");

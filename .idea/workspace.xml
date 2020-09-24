@@ -20,7 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cbac9c06-fed2-4527-b981-8e3345c190db" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/commands/help.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/help.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/8ball.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/8ball.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/dice.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/dice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/info.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/info.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +49,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ManyItems/dist/weapon.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Valkyrie/commands/regcmds/rolldice.js" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -81,7 +84,7 @@
       <workItem from="1600784593135" duration="390000" />
       <workItem from="1600785077959" duration="4881000" />
       <workItem from="1600797072112" duration="13927000" />
-      <workItem from="1600841640903" duration="5833000" />
+      <workItem from="1600841640903" duration="13530000" />
     </task>
     <servers />
   </component>
@@ -105,10 +108,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="14" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1600806404791" />
-    <state x="463" y="106" key="FileChooserDialogImpl" timestamp="1600806325624">
+    <state x="463" y="106" key="FileChooserDialogImpl" timestamp="1600922483149">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="106" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1600806325624" />
+    <state x="463" y="106" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1600922483149" />
     <state width="1345" height="179" key="GridCell.Tab.0.bottom" timestamp="1600785036984">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
