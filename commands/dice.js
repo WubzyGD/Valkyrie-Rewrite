@@ -13,7 +13,7 @@ module.exports = {
         let cdiceo = {"roll": function() {}, "create": function() {}, "delete": function() {}, "list": function() {}, "info": function() {}};
         if (!Object.keys(cdiceo).includes(args[0].toLowerCase().trim())) {
             if (![-1, 0, 2].includes(msg.search('"'))) {return message.reply("You need two quotes to specify a reason!");}
-            var nmsg = message.content(); var reason = null; var against = null;
+            var nmsg = message.content; var reason = null; var against = null;
             if (msg.search('"') === 2) {
                 nmsg = nmsg.slice(nmsg.search('"') + 1).trim();
                 reason = nmsg.split('"')[0].trim();
