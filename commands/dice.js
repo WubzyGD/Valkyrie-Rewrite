@@ -52,11 +52,13 @@ module.exports = {
                     if (reading === "against") {options.against += arg;}
                 }
             }
+            console.log(options.reason, options.against);
             reason = options.reason.length ? options.reason : reason !== null ? reason : null;
             against = options.against.length ? options.against : null;
+            console.log(reason, against);
             if (options.reason.length > 350) {return message.reply("Listen, I get that you feel the need to write an essay on why your little d6 roll is important, but could you please tone it down a little? Thanks.");}
             if (options.against.length > 75) {return message.reply("Hey there chief, I'm sure you've got a lot of enemies but let's stick to just rolling against one or two of them? *Translation: your 'against' option was too long.*");}
-
+            console.log(dice);
             let res = against ? {m: formatRolls(rollAll(dice)), a: formatRolls(rollAll(dice))} : formatRolls(rollAll(dice));
 
             let rollEmbed = new Discord.MessageEmbed()
