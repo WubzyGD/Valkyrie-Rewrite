@@ -10,7 +10,7 @@ module.exports = {
         } else {
             var command;
             if (client.commands.has(args[0])) {command = client.commands.get(args[0]);}
-            else if (client.aliases.has(args[0])) {command = client.commands.get(client.aliases.get([args[0]]));}
+            else if (client.aliases.has(args[0])) {command = client.commands.get(client.aliases.get(args[0]));}
             else {return message.reply("I don't have that command! Try using `" + prefix + "help` to get a list of my commands");}
 
             return message.reply(command.help

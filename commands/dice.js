@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: "dice",
-    aliases: ["die", "d"],
+    aliases: ["die", "d", "rolldice", "diceroll"],
     help: new Discord.MessageEmbed()
         .setTitle("Help -> Dice")
         .setDescription("The center for all things dice-related! Quickly roll a die or dice, or make a new roll to save for later! This command can be really simple, or super complex, so here's a nice, handy guide to using it.")
@@ -21,9 +21,14 @@ module.exports = {
             }
 
             let dargs = nmsg.split(/\s+/g);
-            var dice = []; var midargs = []; var options = {against: '', reason: ''};
+            var dice = []; var midargs = [];
+            var options = {
+                against: '',
+                reason: '',
+                force: false
+            };
             for (let arg of dargs) {
-                if (arg.match(/^[dD](?:4|6|8|10|12|20|100)$/)) {dice.push(arg.trim().slice(1));}
+                if (arg.match(/^[dD](?:\d+)$/)) {dice.push(arg.trim().slice(1));}
                 else {midargs.push(arg);}
             }
             if (dice.length > 25) {return message.reply("Unfortunately, because the message size is too large, I cannot roll any more than 25 dice.");}
@@ -33,9 +38,11 @@ module.exports = {
                 let arg = midargs[i];
                 if (arg.startsWith('-') && arg.length > 1) {reading = arg.trim().slice(1);}
                 else if (reading) {
-                    if (reading == "reason") {options.reason = `${options.reason} ${arg}`;}
-                    if (reading == "against") {options.against = `${options.against} ${arg}`;}
+                    if (reading == "reason" || reading == "r") {options.reason = `${options.reason} ${arg}`;}
+                    if (reading == "against" || reading == "a") {options.against = `${options.against} ${arg}`;}
+                    if (reading == "force" || reading == "f") {options.force = true;}
                 }
+                if (arg == "-f" || arg == "-force") {options.force = true;}
             }
             
             reason = options.reason.length ? options.reason : reason !== null ? reason : null;
@@ -43,14 +50,35 @@ module.exports = {
             
             if (options.reason.length > 350) {return message.reply("Listen, I get that you feel the need to write an essay on why your little d6 roll is important, but could you please tone it down a little? Thanks.");}
             if (options.against.length > 75) {return message.reply("Hey there chief, I'm sure you've got a lot of enemies but let's stick to just rolling against one or two of them? *Translation: your 'against' option was too long.*");}
-            
-            function verify(dicet) {
-                for (let die of dicet) {
-                console.log(die, dicet); 
+
+            function verify(dicet, optionss) {
+                var v_x;
                 if (!dicet.length) {return false;}
-                if (isNaN(Number(die)) || ![4, 6, 8, 10, 12, 100].includes(Number(die))) {return false;}} return true;}
-            console.log(verify(dice));
-            return;
+                for (v_x of dicet) {
+                    if (isNaN(Number(v_x))) {return false;}
+                    if (optionss.force === false) {if (![4, 6, 8, 10, 12, 100].includes(Number(v_x))) {/*dice.splice(dice.indexOf(v_x), 1);*/ return false;}}
+                }
+                return dicet.length >= 1;
+            }
+            if (!verify(dice, options)) {return message.reply("One of your dice wasn't actually a die, or you didn't give any real dice.");}
+
+            function clean(dicet) {var v_x; var i; let temp = []; for (i=0; i<dicet.length;i++) {v_x=dicet[i]; temp.push(Number(v_x));} return temp;}
+            dice = clean(dice);
+            function rollp(pdice) {
+                function roll(d) {return Math.ceil(Math.random() * d);}
+                function rollAll(dicet) {var rd;var i;let temp = [];for (i=0;i<dicet.length;i++) {rd = dicet[i]; temp.push(roll(rd));} return temp;}
+                let rolleddice = rollAll(pdice);
+                function ms(dicet, ppdice) {
+                    var rs = ''; var i; var cd; var cpd;
+                    for (i=0;i<dicet.length;i++) {cd=dicet[i]; cpd=ppdice[i]; rs+=`**${i+1}.** Roll \`d${cd}\` -> \`${cpd}\`\n`} return rs;
+                }
+                let s = ms(pdice, rolleddice);
+                function total(dicet) {var v_x = 0; var i; for (i=0; i<dicet.length;i++) {v_x += dicet[i];} return v_x;}
+                let t = total(rolleddice);
+                return {str: s, total: t};
+            }
+
+            let res = against ? {a: rollp(dice), m: rollp(dice)} : rollp(dice);
 
             let rollEmbed = new Discord.MessageEmbed()
                 .setThumbnail(message.author.avatarURL({size: 1024}))
@@ -65,7 +93,8 @@ module.exports = {
                     ? `Dice Roll with Reason`
                     : `Standard Dice Roll`
             );
-            rollEmbed.setDescription(against ? `Rolled by ${message.member ? message.member.displayName : message.author.username} against ${against}.` : `Rolled by ${message.member ? message.member.displayName : message.author.username}.`);
+            let forcestr = options.force ? ` This roll may contain forced dice (non-standard dice values)` : ``;
+            rollEmbed.setDescription(against ? `Rolled by ${message.member ? message.member.displayName : message.author.username} against ${against}.${forcestr}` : `Rolled by ${message.member ? message.member.displayName : message.author.username}.${forcestr}`);
             if (reason) {rollEmbed.addField("Reason", reason);}
             if (against) {
                 rollEmbed.addField(`Attacking Roll: ${message.member ? message.member.displayName : message.author.username}`, res.m.str);
