@@ -16,7 +16,7 @@ module.exports = {
             return message.reply(command.help
                 ? command.help instanceof Discord.MessageEmbed
                     ? command.help.setFooter("Valkyrie | <required> [optional]", client.user.avatarURL()).setColor("DC134C").setTimestamp()
-                    : command.help.replace(/{{p}}/+g, prefix)
+                    : command.help.replace(/{{p}}/g, prefix)
                 : "I don't seem to have any help info available for that command."
             );
         }
