@@ -22,7 +22,6 @@
     <list default="true" id="cbac9c06-fed2-4527-b981-8e3345c190db" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/dice.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/dice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/help.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/help.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +84,7 @@
       <workItem from="1600797072112" duration="13927000" />
       <workItem from="1600841640903" duration="13530000" />
       <workItem from="1600954329568" duration="2290000" />
-      <workItem from="1600970742518" duration="7093000" />
+      <workItem from="1600970742518" duration="14398000" />
     </task>
     <servers />
   </component>
