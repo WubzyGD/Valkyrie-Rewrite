@@ -34,5 +34,5 @@ module.exports = async (client, message) => {
     } catch (e) {
         var date = new Date; date = date.toString().slice(date.toString().search(":") - 2, date.toString().search(":") + 6);
         console.error(`\n${chalk.red('[ERROR]')} >> ${chalk.yellow(`At [${date}] | In ${message.guild.name}\n`)}`, e);
-    };
+    }
 };

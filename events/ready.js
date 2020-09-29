@@ -1,19 +1,30 @@
 const Discord = require('discord.js');
 const chalk = require('chalk');
 const moment = require('moment');
+const mongoose = require('mongoose');
 
 const prefix = 'v..';
 
-module.exports = client => {
+module.exports = async client => {
+	const config = client.config;
+	try {
+		await mongoose.connect(`mongodb+srv://${config.database.user}:${config.database.password}@${config.database.cluster}.uqyvv.mongodb.net`, {
+			useFindAndModify: false, useNewUrlParser: true, dbName: 'valk', useUnifiedTopology: true
+		});
+	} catch (e) {
+		let date = new Date; date = date.toString().slice(date.toString().search(":") - 2, date.toString().search(":") + 6);
+		console.error(`\n${chalk.red('[ERROR]')} >> ${chalk.yellow(`At [${date}] | Occurred while trying to connect to Mongo Cluster`)}`, e);
+	}
+
     console.log(`\n${chalk.green('[BOOT]')} >> [${moment().format('L LTS')}] -> ${chalk.greenBright("Connected to Discord")}.`);
-    var date = new Date; date = date.toString().slice(date.toString().search(":") - 2, date.toString().search(":") + 6);
+    let date = new Date; date = date.toString().slice(date.toString().search(":") - 2, date.toString().search(":") + 6);
     console.log(`\n${chalk.gray('[INFO]')} >> ${chalk.white(`Logged in at ${date}.`)}`);
     console.log(`\n${chalk.gray('[INFO]')} >> ${chalk.white(`Logged in as ${client.user.username}!`)}`);
     console.log(`${chalk.gray('[INFO]')} >> ${chalk.white(`Client ID: ${client.user.id}`)}`);
     console.log(`${chalk.gray('[INFO]')} >> ${chalk.white(`Running on ${client.guilds.cache.size} servers!`)}`);
     console.log(`${chalk.gray('[INFO]')} >> ${chalk.white(`Serving ${client.users.cache.size} users!`)}`);
     
-    var responses = {"PLAYING": ["some high rolls...", "with dice...", "a great rpg...", "with the laws of the dice...", 
+    setInterval(function () {let responses = {"PLAYING": ["some high rolls...", "with dice...", "a great rpg...", "with the laws of the dice...",
   	"with the dead elf's knife...", "with skeleton bones...", "with a new set of dice...", "five-finger filet...", 
   	"with the sanity of the bard...", "with Wubzy's winning chances...", "with Wubzy's patience...", "with the idea of becoming self-aware...",
   	"\"your code is wrong, wubzy\"", "with fire...", "with my food...", "with a fireball...", "dodge-fire-ball...",
@@ -34,5 +45,15 @@ module.exports = client => {
 	"Touka run a marathon..."
 	, `over ${client.guilds.cache.size} servers...`]};
 	var type = Object.keys(responses)[Math.floor(Math.random() * Object.keys(responses).length)];
-    client.user.setActivity(responses[type][Math.floor(Math.random() * responses[type].length)] + " | " + prefix + "help", {type: type});
+    client.user.setActivity(responses[type][Math.floor(Math.random() * responses[type].length)] + " | " + prefix + "help", {type: type});}, 14400000);
+
+    let botData = await require('../models/bot').findOne({finder: 'lel'});
+    botData.servers = client.guilds.cache.size;
+    botData.servers_all = botData.servers_all + 1;
+    botData.restarts = botData.restarts + 1;
+    botData.lastRestart = new Date();
+
+	console.log(`${chalk.gray('\n[INFO]')} >> ${chalk.white(`This is restart #${botData.restarts}.`)}`);
+
+    await botData.save();
 };
