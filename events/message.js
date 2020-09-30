@@ -29,6 +29,7 @@ module.exports = async (client, message) => {
             message.channel.startTyping();
             await wait(800);
             message.channel.stopTyping();
+            require('../util/oncommand')(message, msg, args, cmd, prefix, mention, client);
             command.execute(message, msg, args, cmd, prefix, mention, client);
         }
     } catch (e) {
