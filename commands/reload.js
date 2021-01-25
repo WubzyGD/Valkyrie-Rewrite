@@ -11,8 +11,8 @@ module.exports = {
         .addField("Syntax", "`refresh [log]`. Adding 'log' will log to the console as though the bot were in startup.")
         .addField("Notice", "Only my creator can use this command."),
     meta: {
-        category: 'developer',
-        description: "",
+        category: 'Developer',
+        description: "Reloads the client and flushes all commands and event handlers. For nerds only.",
         syntax: '`reload [log]`',
         extra: null
     },

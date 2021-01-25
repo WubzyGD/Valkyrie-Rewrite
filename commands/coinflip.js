@@ -11,7 +11,7 @@ module.exports = {
         .setDescription("Flip a coin! ...it's really not that hard.\n\nYou can add `-reason` to show what the flip is for, or `-call <heads|tails>`")
         .addField("Syntax", "`coinflip`"),
     meta: {
-        category: 'utility',
+        category: 'Utility',
         description: "Flips a coin. Not much to see here...",
         syntax: '`coinflip`',
         extra: null

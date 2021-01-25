@@ -7,9 +7,9 @@ module.exports = {
     name: "setstatus",
     aliases: ['sst'],
     meta: {
-        category: 'developer',
-        description: "",
-        syntax: '` <>`',
+        category: 'Developer',
+        description: "Sets the bot's status",
+        syntax: '`setstatus -status <message> -type <type>`',
         extra: null
     },
     tags: [],

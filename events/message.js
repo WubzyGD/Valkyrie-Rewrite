@@ -30,7 +30,7 @@ module.exports = async (client, message) => {
             await wait(800);
             message.channel.stopTyping();
             require('../util/oncommand')(message, msg, args, cmd, prefix, mention, client);
-            if (command.meta.guildOnly && !message.guild) {return message.channel.send("That command can only be used in a server!");}
+            if (command.meta && command.meta.guildOnly && !message.guild) {return message.channel.send("That command can only be used in a server!");}
             command.execute(message, msg, args, cmd, prefix, mention, client);
         }
     } catch (e) {

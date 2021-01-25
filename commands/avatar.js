@@ -6,6 +6,12 @@ module.exports = {
     name: "avatar",
     aliases: ['av', 'a', 'pfp'],
     help: "Use `{{p}}avatar` to flex your own profile picture, or mention someone to get theirs!",
+    meta: {
+        category: 'Misc',
+        description: "View users' avatars or flex your own",
+        syntax: '`avatar [@user]`',
+        extra: null
+    },
     async execute(message, msg, args, cmd, prefix, mention, client) {
         let member = !args.length ? message.author : mention ? mention : client.users.cache.has(args[0]) ? client.users.cache.get(args[0]) : message.author;
         let name = !args.length ? message.member ? message.member.displayName : message.author.username : mention ? mention.username : client.users.cache.has(args[0]) ? client.users.cache.get(args[0]).username : message.author.username;

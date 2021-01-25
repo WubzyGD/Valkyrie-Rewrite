@@ -9,8 +9,8 @@ module.exports = {
     aliases: ['ev', ':', 'e'],
     help: "Some big nerd stuff for my developer. This command makes me bend to the will of whoever uses it, so that power is given only to my creator! :p",
     meta: {
-        category: 'developer',
-        description: "",
+        category: 'Developer',
+        description: "Evaluates JavaScript code; great for debugging... also only available to a nerd named Wubzy (my creator :p)",
         syntax: '`eval <code>`',
         extra: null
     },

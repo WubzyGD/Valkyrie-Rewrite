@@ -8,7 +8,7 @@ module.exports = {
         .setDescription('Answers your questions in an intelligent, honest, ~~completely not random~~ way!')
         .addField("Syntax", '`8ball <question>`'),
     meta: {
-        category: 'fun',
+        category: 'Fun',
         description: 'Answers your questions in an intelligent, honest, ~~completely not random~~ way!',
         syntax: '`8ball <question>`',
         extra: null

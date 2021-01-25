@@ -8,12 +8,18 @@ module.exports = {
         .setDescription("The center for all things dice-related! Quickly roll a die or dice, or make a new roll to save for later! This command can be really simple, or super complex, so here's a nice, handy guide to using it.")
         .addField("Syntax", "`dice <roll|create|delete|list|info> <roll ID> [-options]`\n`dice [\"reason\"] d<die> d[die] [etc...] [-options]`")
         .addField("Simple Syntax", "By just using `roll d#` you can get a fast and easy roll! Just make sure you start every die with `d`.\n\nThere are some optional things to do for this:\n-You can specify a reason for rolling by placing quotes and some text before the dice\nYou can add some options as well. Use `-option` to do so. Valid options are `-reason <your reason>` or `-against <person>`"),
+    meta: {
+        category: 'RP',
+        description: "Roll a virtually infinite number of dice, roll them against someone, save and use your rolls (coming very soon), and do so very easily with a nice and easy syntax.",
+        syntax: '`dice <roll|create|delete|list|info> <roll ID> [-options]`\n`dice [\"reason\"] d<die> d[die] [etc...] [-options]`',
+        extra: null
+    },
     execute(message, msg, args, cmd, prefix, mention, client) {
         if (!args.length) {return message.channel.send(`Syntax: \`${prefix}dice <roll|create|delete|list|info> <roll ID> [-options]\` or \`dice [\"reason\"] d<die> d[die] [etc...] [-options]\``);}
         let cdiceo = {"roll": function() {}, "create": function() {}, "delete": function() {}, "list": function() {}, "info": function() {}};
         if (!Object.keys(cdiceo).includes(args[0].toLowerCase().trim())) {
             if (![-1, 0, 2].includes(msg.split('"').length - 1)) {return message.reply("You need two quotes to specify a reason!");}
-            var nmsg = message.content; var reason = null; var against = null;
+            let nmsg = message.content; let reason = null; let against = null;
             if (msg.search('"') !== -1) {
                 nmsg = nmsg.slice(nmsg.search('"') + 1).trim();
                 reason = nmsg.split('"')[0].trim();
@@ -21,8 +27,8 @@ module.exports = {
             }
 
             let dargs = nmsg.split(/\s+/g);
-            var dice = []; var midargs = [];
-            var options = {
+            let dice = []; let midargs = [];
+            let options = {
                 against: '',
                 reason: '',
                 name: '',
@@ -36,21 +42,21 @@ module.exports = {
             }
             if (dice.length > 25) {return message.reply("Unfortunately, because the message size is too large, I cannot roll any more than 25 dice.");}
 
-            let reading = null;
+            let reading = '';
             let cmodn = '';
             for (let i = 0; i < midargs.length; i++) {
                 let arg = midargs[i];
                 if (arg.startsWith('-') && arg.length > 1) {reading = arg.trim().slice(1);}
-                else if (reading) {
-                    if (reading == "reason" || reading == "r") {options.reason = `${options.reason} ${arg}`;}
-                    else if (reading == "against" || reading == "a") {options.against = `${options.against} ${arg}`;}
-                    else if (reading == "force" || reading == "f") {options.force = true;}
-                    else if (reading == "name" || reading == "n") {options.name = `${options.name} ${arg}`;}
-                    else if (reading == "modname" || reading == "mn") {cmodn = `${cmodn} ${arg}`;}
-                    else if (reading == "modamount" || reading == "ma") {options.moda.push(arg);}
+                else if (reading.length) {
+                    if (reading === "reason" || reading === "r") {options.reason = `${options.reason} ${arg}`;}
+                    else if (reading === "against" || reading === "a") {options.against = `${options.against} ${arg}`;}
+                    else if (reading === "force" || reading === "f") {options.force = true;}
+                    else if (reading === "name" || reading === "n") {options.name = `${options.name} ${arg}`;}
+                    else if (reading === "modname" || reading === "mn") {cmodn = `${cmodn} ${arg}`;}
+                    else if (reading === "modamount" || reading === "ma") {options.moda.push(arg);}
                 }
-                if (arg == "-f" || arg == "-force") {options.force = true;}
-                if (arg == "-mn" || arg == "-modname") {if (cmodn.length > 0) {options.modn.push(cmodn);} cmodn = '';}
+                if (arg === "-f" || arg === "-force") {options.force = true;}
+                if (arg === "-mn" || arg === "-modname") {if (cmodn.length > 0) {options.modn.push(cmodn);} cmodn = '';}
             }
             if (cmodn.length > 0) {options.modn.push(cmodn);}
             
@@ -66,7 +72,7 @@ module.exports = {
             if (options.modn.length) {let e; for (e of options.modn) {if (e.length > 50) {return message.reply("One of your modifier names was too long!");}}}
 
             function verify(dicet, optionss) {
-                var v_x;
+                let v_x;
                 if (!dicet.length) {return false;}
                 for (v_x of dicet) {
                     if (isNaN(Number(v_x))) {return false;}
@@ -76,23 +82,23 @@ module.exports = {
             }
             if (!verify(dice, options)) {return message.reply("One of your dice wasn't actually a die, or you didn't give any real dice.");}
 
-            function clean(dicet) {var v_x; var i; let temp = []; for (i=0; i<dicet.length;i++) {v_x=dicet[i]; temp.push(Number(v_x));} return temp;}
+            function clean(dicet) {let v_x; let i; let temp = []; for (i=0; i<dicet.length;i++) {v_x=dicet[i]; temp.push(Number(v_x));} return temp;}
             dice = clean(dice);
             options.moda = clean(options.moda);
             function rollp(pdice, modsn, modsa) {
                 function roll(d) {return Math.ceil(Math.random() * d);}
-                function rollAll(dicet) {var rd;var i;let temp = [];for (i=0;i<dicet.length;i++) {rd = dicet[i]; temp.push(roll(rd));} return temp;}
+                function rollAll(dicet) {let rd;let i;let temp = [];for (i=0;i<dicet.length;i++) {rd = dicet[i]; temp.push(roll(rd));} return temp;}
                 let rolleddice = rollAll(pdice);
                 function ms(dicet, ppdice) {
-                    var rs = ''; var i; var cd; var cpd;
+                    let rs = ''; let i; let cd; let cpd;
                     for (i=0;i<dicet.length;i++) {cd=dicet[i]; cpd=ppdice[i]; rs+=`**${i+1}.** Roll \`d${cd}\` -> \`${cpd}\`\n`} return rs;
                 }
                 function ms2(unmods, unmodsa) {
-                    var ms = ''; var i; var cm; var crm;
+                    let ms = ''; let i; let cm; let crm;
                     for (i=0;i<unmods.length;i++) {cm=unmods[i]; crm=unmodsa[i]; ms+=`**${cm.trim()}** -> \`${crm}\`\n`} return ms;
                 }
                 let s = ms(pdice, rolleddice);
-                function total(dicet) {var v_x = 0; var i; for (i=0; i<dicet.length;i++) {v_x += dicet[i];} return v_x;}
+                function total(dicet) {let v_x = 0; let i; for (i=0; i<dicet.length;i++) {v_x += dicet[i];} return v_x;}
                 let t = total(rolleddice);
                 let mods = modsn.length ? ms2(modsn, modsa) : null;
                 let mt = total(modsa);

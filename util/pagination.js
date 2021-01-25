@@ -31,7 +31,7 @@ class Pagination {
             }
         }
         await this.message.edit('', this.pages[page]
-            .setFooter(`Natsuki | Page ${page + 1} of ${this.pages.length}`, this.client.user.avatarURL())
+            .setFooter(`Valkyrie | Page ${page + 1} of ${this.pages.length}`, this.client.user.avatarURL())
             .setTimestamp());
         this.currentPage = page;
         return this;
@@ -88,7 +88,6 @@ class Pagination {
             : (r) => { return emoji.includes(r.emoji.name); };
         this.controllers.collector = this.message.createReactionCollector(filter, { time: 450000 });
         this.controllers.collector.on('collect', async (r) => {
-            console.log(r);
             let functions = {
                 '⬅': () => { return this.prevPage(); },
                 '➡': () => { return this.nextPage(); },
